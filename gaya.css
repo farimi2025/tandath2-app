@@ -1,0 +1,158 @@
+:root {
+  --warna-utama: #4F8EDC;      /* Biru Lembut */
+  --warna-butang: #53C68C;     /* Hijau Tenang */
+  --warna-butang-hover: #42996A;
+  --warna-latar: #F0F4F8;      /* Putih Bersih */
+  --warna-judul: #222D3B;
+  --warna-tekankan: #FFDB6E;   /* Kuning Ceria */
+  --warna-teks: #1A1A1A;
+  --warna-footer: #E7F1FB;
+  --saiz-teks-besar: 1.5rem;
+  --saiz-teks-normal: 1.1rem;
+}
+
+html, body {
+  background: var(--warna-latar);
+  font-family: 'Segoe UI', 'Montserrat', Arial, sans-serif;
+  color: var(--warna-teks);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+header.bar-motivasi {
+  background: linear-gradient(90deg, var(--warna-utama) 70%, var(--warna-tekankan) 100%);
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem 1rem 1rem;
+  border-radius: 0 0 32px 32px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 24px rgba(79,142,220,0.11);
+}
+header.bar-motivasi h1 {
+  margin: 0 0 0.7rem 0;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+}
+header.bar-motivasi p {
+  margin: 0;
+  font-size: var(--saiz-teks-normal);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 40vh;
+}
+
+section.pilihan-kelas h2 {
+  color: var(--warna-utama);
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.grid-kelas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1.2rem;
+  padding: 2rem 0;
+  width: min(800px, 90vw);
+  margin: 0 auto;
+}
+
+.butang-kelas {
+  background: var(--warna-butang);
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  padding: 2.2rem 1.2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.09);
+  cursor: pointer;
+  transition: background 0.18s, transform 0.15s;
+  outline: none;
+  width: 100%;
+}
+.butang-kelas:hover, .butang-kelas:focus {
+  background: var(--warna-butang-hover);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 18px rgba(79,142,220,0.11);
+}
+
+footer .kaki-motivasi {
+  margin-top: 2.5rem;
+  background: var(--warna-footer);
+  color: var(--warna-utama);
+  text-align: center;
+  padding: 1.4rem 0 1rem 0;
+  border-radius: 32px 32px 0 0;
+  font-size: 1rem;
+  box-shadow: 0 -2px 14px rgba(79,142,220,0.06);
+}
+
+@media (max-width: 600px) {
+  header.bar-motivasi h1 { font-size: 1.3rem; }
+  .butang-kelas { font-size: 1.02rem; padding: 1.2rem 0.5rem;}
+  .grid-kelas { padding: 1.2rem 0; }
+}
+.grid-kelas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1.2rem;
+  padding: 2rem 0;
+  width: min(800px, 90vw);
+  margin: 0 auto;
+  max-height: 65vh;    /* hadkan ketinggian grid */
+  overflow-y: auto;    /* scroll jika lebih */
+  /* tambah border jika nak nampak area scroll */
+}
+.input-carian {
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto 1rem auto;
+  display: block;
+  padding: 0.8rem 1rem;
+  font-size: 1.15rem;
+  border-radius: 16px;
+  border: 1.5px solid #b8c6d4;
+  box-sizing: border-box;
+  background: #f6fafd;
+  color: var(--warna-judul);
+  outline: none;
+  transition: border-color .2s;
+}
+.input-carian:focus {
+  border-color: var(--warna-utama);
+}
+.label-fav {
+  font-weight: bold;
+  font-size: 1.07rem;
+  color: var(--warna-utama);
+  grid-column: 1/-1;
+  margin: 0 0 0.2rem 0.4rem;
+  letter-spacing: 0.2px;
+}
+.butang-kelas.fav {
+  border: 2.5px solid var(--warna-tekankan);
+  background: linear-gradient(90deg, #ffe87c 65%, #f7fae7 100%);
+  color: #2b353b;
+  position: relative;
+}
+.butang-kelas.fav::after {
+  content: "★";
+  color: #e0b11a;
+  font-size: 1.1em;
+  position: absolute;
+  right: 1.2rem;
+  top: 0.8rem;
+}
+.pemisah-kelas {
+  grid-column: 1/-1;
+  height: 0.6rem;
+  margin: 0.6rem 0;
+  border-bottom: 2px dashed #d9dee7;
+  opacity: 0.7;
+}
