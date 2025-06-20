@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tanda Kehadiran Murid</title>
+  <link rel="stylesheet" href="../modul_induk/gaya.css" />
+  <style>
+    main {
+      max-width: 900px;
+      margin: 1rem auto;
+      background: #fff;
+      padding: 1.5rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      text-align: center;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+    button {
+      padding: 0.3rem 0.6rem;
+      margin: 0 0.2rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      color: white;
+    }
+    button.hadir {
+      background-color: #28a745;
+    }
+    button.tidak-hadir {
+      background-color: #dc3545;
+    }
+    button.alasan {
+      background-color: #ffc107;
+      color: black;
+    }
+    #statusMsg {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tanda Kehadiran Murid</h1>
+    <p id="kelasNama"></p>
+  </header>
+
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>Bil</th>
+          <th>Nama Murid</th>
+          <th>Status Kehadiran</th>
+          <th>Tindakan</th>
+        </tr>
+      </thead>
+      <tbody id="muridTbody">
+        <!-- Senarai murid akan dipaparkan -->
+      </tbody>
+    </table>
+
+    <button id="btnSimpan">Simpan Kehadiran</button>
+    <p id="statusMsg"></p>
+  </main>
+
+  <script type="module" src="kehadiran.js"></script>
+  <script type="module" src="main.js"></script>
+
+</body>
+</html>

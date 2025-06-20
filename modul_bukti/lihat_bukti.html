@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pengurusan Rekod Bukti Kehadiran</title>
+  <link rel="stylesheet" href="../modul_induk/gaya.css" />
+  <style>
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 1.5rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    form > label {
+      font-weight: bold;
+      display: block;
+      margin-top: 1rem;
+    }
+    form > input, form > select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+      font-size: 1rem;
+    }
+    form > button {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    form > button:hover {
+      background-color: #0056b3;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+    button.edit-btn, button.delete-btn {
+      padding: 0.3rem 0.6rem;
+      margin-right: 0.3rem;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      color: white;
+      font-size: 0.9rem;
+    }
+    button.edit-btn {
+      background-color: #28a745;
+    }
+    button.delete-btn {
+      background-color: #dc3545;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Pengurusan Rekod Bukti Kehadiran</h1>
+  </header>
+
+  <main>
+    <form id="form-bukti">
+      <input type="hidden" id="indexEdit" value="-1" />
+      <label for="id_murid">ID Murid:</label>
+      <input type="text" id="id_murid" required />
+
+      <label for="nama_murid">Nama Murid:</label>
+      <input type="text" id="nama_murid" required />
+
+      <label for="jenis_bukti">Jenis Bukti:</label>
+      <select id="jenis_bukti" required>
+        <option value="">-- Pilih Jenis Bukti --</option>
+        <option value="MC">MC</option>
+        <option value="Surat Kebenaran">Surat Kebenaran</option>
+        <option value="Lain-lain">Lain-lain</option>
+      </select>
+
+      <label for="tarikh_upload">Tarikh Upload:</label>
+      <input type="date" id="tarikh_upload" required />
+
+      <label for="fail_nama">Nama Fail (nama fail di server):</label>
+      <input type="text" id="fail_nama" required />
+
+      <button type="submit" id="btnSubmit">Tambah Rekod</button>
+      <button type="button" id="btnCancel" style="display:none; margin-left:10px;">Batal</button>
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID Murid</th>
+          <th>Nama Murid</th>
+          <th>Jenis Bukti</th>
+          <th>Tarikh Upload</th>
+          <th>Nama Fail</th>
+          <th>Tindakan</th>
+        </tr>
+      </thead>
+      <tbody id="bukti-tbody">
+        <!-- Data rekod akan dipaparkan -->
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>© 2025 TandaTH 2.0 | Pengurusan Bukti Kehadiran</p>
+  </footer>
+
+  <script type="module">
+    let buktiData = [];
+
+    // Muat data dari JSON localStorage / fetch dari server
+    function loadData() {
+      const json = localStorage.getItem('buktiData');
+      buktiData = json ? JSON.parse(json) : [];
+    }
+
+    function saveData() {
+      localStorage.setItem('buktiData', JSON.stringify(buktiData));
+    }
+
+    function paparData() {
+      const tbody = document.getElementById('bukti-tbody');
+      tbody.innerHTML = '';
+      if (buktiData.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;">Tiada rekod ditemui.</td></tr>';
+        return;
+      }
+      buktiData.forEach((item, index) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${item.id_murid}</td>
+          <td>${item.nama_murid}</td>
+          <td>${item.jenis_bukti}</td>
+          <td>${item.tarikh_upload}</td>
+          <td>${item.fail_nama}</td>
+          <td>
+            <button class="edit-btn" data-index="${index}">Sunting</button>
+            <button class="delete-btn" data-index="${index}">Padam</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function clearForm() {
+      document.getElementById('indexEdit').value = -1;
+      document.getElementById('form-bukti').reset();
+      document.getElementById('btnSubmit').textContent = 'Tambah Rekod';
+      document.getElementById('btnCancel').style.display = 'none';
+    }
+
+    document.getElementById('form-bukti').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const indexEdit = parseInt(document.getElementById('indexEdit').value, 10);
+      const id_murid = document.getElementById('id_murid').value.trim();
+      const nama_murid = document.getElementById('nama_murid').value.trim();
+      const jenis_bukti = document.getElementById('jenis_bukti').value;
+      const tarikh_upload = document.getElementById('tarikh_upload').value;
+      const fail_nama = document.getElementById('fail_nama').value.trim();
+
+      if (!id_murid || !nama_murid || !jenis_bukti || !tarikh_upload || !fail_nama) {
+        alert('Sila lengkapkan semua medan.');
+        return;
+      }
+
+      const rekod = { id_murid, nama_murid, jenis_bukti, tarikh_upload, fail_nama };
+
+      if (indexEdit === -1) {
+        // Tambah rekod baru
+        buktiData.push(rekod);
+      } else {
+        // Kemaskini rekod sedia ada
+        buktiData[indexEdit] = rekod;
+      }
+
+      saveData();
+      paparData();
+      clearForm();
+    });
+
+    document.getElementById('btnCancel').addEventListener('click', clearForm);
+
+    document.getElementById('bukti-tbody').addEventListener('click', (e) => {
+      if (e.target.classList.contains('edit-btn')) {
+        const index = parseInt(e.target.getAttribute('data-index'), 10);
+        const rekod = buktiData[index];
+        document.getElementById('indexEdit').value = index;
+        document.getElementById('id_murid').value = rekod.id_murid;
+        document.getElementById('nama_murid').value = rekod.nama_murid;
+        document.getElementById('jenis_bukti').value = rekod.jenis_bukti;
+        document.getElementById('tarikh_upload').value = rekod.tarikh_upload;
+        document.getElementById('fail_nama').value = rekod.fail_nama;
+        document.getElementById('btnSubmit').textContent = 'Kemaskini Rekod';
+        document.getElementById('btnCancel').style.display = 'inline-block';
+      }
+
+      if (e.target.classList.contains('delete-btn')) {
+        const index = parseInt(e.target.getAttribute('data-index'), 10);
+        if (confirm('Anda pasti mahu padam rekod ini?')) {
+          buktiData.splice(index, 1);
+          saveData();
+          paparData();
+          clearForm();
+        }
+      }
+    });
+
+    // Inisialisasi halaman
+    document.addEventListener('DOMContentLoaded', () => {
+      loadData();
+      paparData();
+      clearForm();
+    });
+  </script>
+</body>
+</html>

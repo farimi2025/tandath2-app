@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Borang Alasan Ketidakhadiran</title>
+  <link rel="stylesheet" href="../modul_induk/gaya.css" />
+</head>
+<body>
+  <header>
+    <h1>Borang Alasan Ketidakhadiran Murid</h1>
+  </header>
+
+  <main>
+    <form id="form-alasan">
+      <label for="nama-murid">Nama Murid:</label>
+      <input type="text" id="nama-murid" name="nama-murid" readonly />
+
+      <label for="tarikh">Tarikh Ketidakhadiran:</label>
+      <input type="date" id="tarikh" name="tarikh" required />
+
+      <label for="alasan">Alasan Ketidakhadiran:</label>
+      <select id="alasan" name="alasan" required>
+        <option value="">-- Pilih alasan --</option>
+        <option value="Tiada Alasan">Tiada Alasan</option>
+        <option value="Cuti Sakit (MC)">Cuti Sakit (MC)</option>
+        <option value="Kebenaran Cuti">Kebenaran Cuti</option>
+        <option value="Aktiviti Sekolah">Aktiviti Sekolah</option>
+        <option value="Lain-lain">Lain-lain</option>
+      </select>
+
+      <label for="catatan">Catatan (optional):</label>
+      <textarea id="catatan" name="catatan" rows="3"></textarea>
+
+      <button type="submit">Hantar Alasan</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>© 2025 TandaTH 2.0 | Sistem Alasan Ketidakhadiran</p>
+  </footer>
+
+  <script src="alasan_form.js"></script>

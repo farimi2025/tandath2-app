@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard Analisa Kehadiran</title>
+  <link rel="stylesheet" href="../modul_induk/gaya.css" />
+  <style>
+    main {
+      max-width: 900px;
+      margin: 1rem auto;
+      background: #fff;
+      padding: 1.5rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dashboard Analisa Kehadiran & Risiko</h1>
+  </header>
+
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>Nama Murid</th>
+          <th>Hari Ponteng</th>
+          <th>MC</th>
+          <th>Cuti</th>
+          <th>Risiko</th>
+          <th>Cadangan</th>
+        </tr>
+      </thead>
+      <tbody id="analisa-tbody"></tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>© 2025 TandaTH 2.0 | Dashboard Analisa</p>
+  </footer>
+
+  <script type="module">
+    import { analisaKehadiran } from './analisis.js';
+
+    // Contoh data dummy kehadiran (boleh ambil dari API)
+    const dataKehadiran = [
+      {
+        id_murid: '001',
+        nama_murid: 'Ali Bin Ahmad',
+        kehadiran: [
+          { tarikh: '2025-06-01', status: 'Hadir' },
+          { tarikh: '2025-06-02', status: 'Tidak Hadir', alasan: null },
+          { tarikh: '2025-06-03', status: 'Tidak Hadir', alasan: 'MC' },
+          { tarikh: '2025-06-04', status: 'Hadir' },
+          { tarikh: '2025-06-05', status: 'Tidak Hadir', alasan: null },
+          { tarikh: '2025-06-06', status: 'Tidak Hadir', alasan: null },
+        ],
+      },
+      {
+        id_murid: '002',
+        nama_murid: 'Siti Aisyah',
+        kehadiran: [
+          { tarikh: '2025-06-01', status: 'Hadir' },
+          { tarikh: '2025-06-02', status: 'Hadir' },
+          { tarikh: '2025-06-03', status: 'Hadir' },
+          { tarikh: '2025-06-04', status: 'Tidak Hadir', alasan: 'Cuti' },
+          { tarikh: '2025-06-05', status: 'Hadir' },
+        ],
+      },
+    ];
+
+    function paparLaporan(laporan) {
+      const tbody = document.getElementById('analisa-tbody');
+      tbody.innerHTML = '';
+      laporan.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${item.nama_murid}</td>
+          <td>${item.ponteng}</td>
+          <td>${item.mc}</td>
+          <td>${item.cuti}</td>
+          <td>${item.risiko}</td>
+          <td>${item.cadangan.join(', ')}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const laporan = analisaKehadiran(dataKehadiran);
+      paparLaporan(laporan);
+    });
+  </script>
+</body>
+</html>

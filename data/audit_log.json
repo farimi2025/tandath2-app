@@ -1,0 +1,18 @@
+[
+  {
+    "id_log": "L001",
+    "id_pengguna": "G001",
+    "tindakan": "Tambah Rekod Kehadiran",
+    "modul": "kehadiran",
+    "tarikh_masa": "2025-06-20T08:15:00",
+    "ip": "192.168.1.10",
+    "peranti": "Android Phone",
+    "data_asal": null,
+    "data_baru": {
+      "id_kehadiran": "H003",
+      "id_murid": "M002",
+      "status": "hadir",
+      "tarikh": "2025-06-20"
+    }
+  }
+]

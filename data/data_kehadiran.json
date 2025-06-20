@@ -1,0 +1,22 @@
+[
+  {
+    "id_kehadiran": "H001",
+    "tarikh": "2025-06-20",
+    "id_murid": "M001",
+    "status": "tidak hadir",
+    "alasan": "Cuti Sakit (MC)",
+    "id_guru_tanda": "G001",
+    "masa_tanda": "08:05:00",
+    "catatan": "Dihantar surat MC"
+  },
+  {
+    "id_kehadiran": "H002",
+    "tarikh": "2025-06-20",
+    "id_murid": "M002",
+    "status": "hadir",
+    "alasan": null,
+    "id_guru_tanda": "G001",
+    "masa_tanda": "08:10:00",
+    "catatan": null
+  }
+]

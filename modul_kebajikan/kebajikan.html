@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pengurusan Kebajikan Murid</title>
+  <link rel="stylesheet" href="../modul_induk/gaya.css" />
+  <style>
+    main {
+      max-width: 900px;
+      margin: 1rem auto;
+      background: #fff;
+      padding: 1.5rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 1rem;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+      font-size: 1rem;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Pengurusan Kebajikan Murid</h1>
+  </header>
+
+  <main>
+    <form id="form-kebajikan">
+      <label for="id_murid">ID Murid:</label>
+      <input type="text" id="id_murid" name="id_murid" required />
+
+      <label for="nama_murid">Nama Murid:</label>
+      <input type="text" id="nama_murid" name="nama_murid" required />
+
+      <label for="jenis_kebajikan">Jenis Kebajikan:</label>
+      <select id="jenis_kebajikan" name="jenis_kebajikan" required>
+        <option value="">-- Pilih Jenis Kebajikan --</option>
+        <option value="Surat Pengesahan">Surat Pengesahan</option>
+        <option value="Surat Rawatan">Surat Rawatan</option>
+        <option value="Kebenaran Ibu Bapa">Kebenaran Ibu Bapa</option>
+        <option value="Lain-lain">Lain-lain</option>
+      </select>
+
+      <label for="tarikh">Tarikh:</label>
+      <input type="date" id="tarikh" name="tarikh" required />
+
+      <label for="catatan">Catatan / Keterangan:</label>
+      <textarea id="catatan" name="catatan" rows="3" placeholder="Masukkan catatan..." required></textarea>
+
+      <button type="submit">Tambah Rekod Kebajikan</button>
+    </form>
+
+    <section>
+      <h2>Senarai Rekod Kebajikan</h2>
+      <tabl

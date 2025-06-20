@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Backup & Recovery TandaTH</title>
+  <link rel="stylesheet" href="../modul_induk/gaya.css" />
+  <style>
+    main {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 1.5rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 1rem;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    input[type="date"] {
+      padding: 0.5rem;
+      font-size: 1rem;
+      margin-right: 1rem;
+    }
+    #status {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Backup & Recovery Data TandaTH</h1>
+  </header>
+
+  <main>
+    <section>
+      <button id="btnBackup">Backup Data Sekarang</button>
+    </section>
+
+    <section style="margin-top:2rem;">
+      <label for="tarikhRecovery">Pilih Tarikh Backup untuk Pulih:</label>
+      <input type="date" id="tarikhRecovery" />
+      <button id="btnRecovery">Pulih Data</button>
+    </section>
+
+    <p id="status"></p>
+  </main>
+
+  <footer>
+    <p>© 2025 TandaTH 2.0 | Backup & Recovery</p>
+  </footer>
+
+  <script type="module">
+    import { backupData } from './backup.js';
+    import { recoveryData } from './recovery.js';
+
+    const btnBackup = document.getElementById('btnBackup');
+    const btnRecovery = document.getElementById('btnRecovery');
+    const tarikhRecovery = document.getElementById('tarikhRecovery');
+    const statusElem = document.getElementById('status');
+
+    btnBackup.addEventListener('click', () => {
+      backupData();
+      statusElem.textContent = 'Backup berjaya dilakukan pada tarikh hari ini.';
+    });
+
+    btnRecovery.addEventListener('click', () => {
+      const tarikh = tarikhRecovery.value;
+      if (!tarikh) {
+        alert('Sila pilih tarikh backup terlebih dahulu.');
+        return;
+      }
+      const berjaya = recoveryData(tarikh);
+      if (berjaya) {
+        statusElem.textContent = `Data berjaya dipulihkan dari backup tarikh ${tarikh}.`;
+      } else {
+        statusElem.textContent = `Tiada backup dijumpai untuk tarikh ${tarikh}.`;
+      }
+    });
+  </script>
+</body>
+</html>

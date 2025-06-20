@@ -1,0 +1,14 @@
+[
+  {
+    "id_intervensi": "I001",
+    "id_murid": "M001",
+    "jenis": "Kaunseling",
+    "objektif": "Meningkatkan kehadiran ke 95% dalam 2 bulan",
+    "tarikh_mula": "2025-06-01",
+    "tarikh_tamat": "2025-08-01",
+    "penanggungjawab": ["G002"],
+    "status": "dalam proses",
+    "catatan": "Sesi pertama berjalan lancar",
+    "bukti": ["surat_mc_ahmad_20250620.jpg"]
+  }
+]

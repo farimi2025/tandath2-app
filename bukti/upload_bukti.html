@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Upload Bukti Ketidakhadiran</title>
+  <link rel="stylesheet" href="../modul_induk/gaya.css" />
+</head>
+<body>
+  <header>
+    <h1>Upload Bukti Ketidakhadiran</h1>
+  </header>
+
+  <main>
+    <form id="form-upload-bukti" enctype="multipart/form-data">
+      <label for="id_murid">ID Murid:</label>
+      <input type="text" id="id_murid" name="id_murid" required />
+
+      <label for="tarikh">Tarikh Dokumen:</label>
+      <input type="date" id="tarikh" name="tarikh" required />
+
+      <label for="jenis_bukti">Jenis Bukti:</label>
+      <select id="jenis_bukti" name="jenis_bukti" required>
+        <option value="">-- Pilih jenis bukti --</option>
+        <option value="MC">MC (Cuti Sakit)</option>
+        <option value="Surat Cuti">Surat Cuti</option>
+        <option value="Dokumen Lain">Dokumen Lain</option>
+      </select>
+
+      <label for="fail_bukti">Pilih Fail Bukti (pdf, jpg, png):</label>
+      <input type="file" id="fail_bukti" name="fail_bukti" accept=".pdf,image/jpeg,image/png" required />
+
+      <button type="submit">Hantar Bukti</button>
+    </form>
+
+    <div id="status-upload" style="margin-top:1rem;"></div>
+  </main>
+
+  <footer>
+    <p>© 2025 TandaTH 2.0 | Upload Bukti Ketidakhadiran</p>
+  </footer>
+
+  <script src="upload_bukti.js"></script>
+</body>
+</html>

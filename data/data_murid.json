@@ -1,0 +1,42 @@
+[
+  {
+    "id_murid": "M001",
+    "nama_penuh": "AHMAD BIN SALLEH",
+    "no_ic": "900101010101",
+    "kelas": "6 Bestari",
+    "jantina": "Lelaki",
+    "penjaga": [
+      {
+        "nama": "HUSAIN BIN SALLEH",
+        "no_ic": "700101010101",
+        "telefon": "0123456789",
+        "hubungan": "Bapa"
+      },
+      {
+        "nama": "SITI NURHAJAH BINTI SALLEH",
+        "no_ic": "700202020202",
+        "telefon": "0198765432",
+        "hubungan": "Ibu"
+      }
+    ],
+    "alamat": "No 123, Jalan Merdeka, Kuala Lumpur",
+    "status": "aktif"
+  },
+  {
+    "id_murid": "M002",
+    "nama_penuh": "NUR AISYAH BINTI MOHD FAIZ",
+    "no_ic": "910202020202",
+    "kelas": "6 Bestari",
+    "jantina": "Perempuan",
+    "penjaga": [
+      {
+        "nama": "MOHD FAIZ BIN ABDULLAH",
+        "no_ic": "680303030303",
+        "telefon": "0133334444",
+        "hubungan": "Bapa"
+      }
+    ],
+    "alamat": "No 456, Jalan Damai, Kuala Lumpur",
+    "status": "aktif"
+  }
+]

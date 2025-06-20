@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Laporan Intervensi SMART</title>
+  <link rel="stylesheet" href="../modul_induk/gaya.css" />
+  <style>
+    main {
+      max-width: 800px;
+      margin: 1rem auto;
+      background: #fff;
+      padding: 1.5rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+    }
+    h1, h2, h3 {
+      color: #007bff;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+    .grafik-container {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Laporan Intervensi SMART Murid</h1>
+    <p id="info-murid"></p>
+  </header>
+
+  <main>
+    <section class="grafik-container">
+      <canvas id="grafikProgres"></canvas>
+    </section>
+
+    <section>
+      <h2>Senarai Intervensi</h2>
+      <table id="jadualIntervensi">
+        <thead>
+          <tr>
+            <th>Tarikh</th>
+            <th>Matlamat</th>
+            <th>Ukuran</th>
+            <th>Capai</th>
+            <th>Relevan</th>
+            <th>Tempoh</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Isi data intervensi akan dimuatkan di sini -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 TandaTH 2.0 | Laporan Intervensi Murid</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="laporan_intervensi.js"></script>
+</body>
+</html>

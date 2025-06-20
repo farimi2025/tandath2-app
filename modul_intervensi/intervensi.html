@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modul Intervensi SMART</title>
+  <link rel="stylesheet" href="../modul_induk/gaya.css" />
+</head>
+<body>
+  <header>
+    <h1>Modul Intervensi SMART</h1>
+    <p id="info-murid"></p>
+  </header>
+
+  <main>
+    <form id="form-intervensi">
+      <label for="matlamat">Matlamat (Specific):</label>
+      <textarea id="matlamat" name="matlamat" rows="2" required></textarea>
+
+      <label for="ukuran">Ukuran (Measurable):</label>
+      <textarea id="ukuran" name="ukuran" rows="2" required></textarea>
+
+      <label for="capai">Boleh Capai (Achievable):</label>
+      <textarea id="capai" name="capai" rows="2" required></textarea>
+
+      <label for="relevan">Relevan (Relevant):</label>
+      <textarea id="relevan" name="relevan" rows="2" required></textarea>
+
+      <label for="tempoh">Tempoh (Time-bound):</label>
+      <input type="text" id="tempoh" name="tempoh" placeholder="Contoh: 1 bulan" required />
+
+      <button type="submit">Simpan Intervensi</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>© 2025 TandaTH 2.0 | Sistem Intervensi Murid</p>
+  </footer>
+
+  <script src="intervensi.js"></script>
+</body>
+</html>

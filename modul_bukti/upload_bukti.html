@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Upload Bukti Kehadiran</title>
+  <link rel="stylesheet" href="../modul_induk/gaya.css" />
+  <style>
+    main {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 1.5rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+    input[type="file"], input[type="text"], select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+      font-size: 1rem;
+    }
+    button {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #status {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Upload Bukti Kehadiran</h1>
+  </header>
+
+  <main>
+    <form id="form-upload-bukti">
+      <label for="id_murid">ID Murid:</label>
+      <input type="text" id="id_murid" name="id_murid" required />
+
+      <label for="nama_murid">Nama Murid:</label>
+      <input type="text" id="nama_murid" name="nama_murid" required />
+
+      <label for="jenis_bukti">Jenis Bukti:</label>
+      <select id="jenis_bukti" name="jenis_bukti" required>
+        <option value="">-- Pilih Jenis Bukti --</option>
+        <option value="MC">MC</option>
+        <option value="Surat Kebenaran">Surat Kebenaran</option>
+        <option value="Lain-lain">Lain-lain</option>
+      </select>
+
+      <label for="fail_bukti">Pilih Fail Bukti:</label>
+      <input type="file" id="fail_bukti" name="fail_bukti" accept="image/*,application/pdf" required capture="environment" />
+
+      <button type="submit">Muat Naik Bukti</button>
+    </form>
+
+    <p id="status"></p>
+  </main>
+
+  <footer>
+    <p>© 2025 TandaTH 2.0 | Upload Bukti Kehadiran</p>
+  </footer>
+
+  <script src="upload_bukti.js" type="module"></script>
+</body>
+</html>

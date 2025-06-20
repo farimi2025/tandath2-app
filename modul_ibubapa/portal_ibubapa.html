@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portal Ibu Bapa TandaTH</title>
+  <link rel="stylesheet" href="../modul_induk/gaya.css" />
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Portal Ibu Bapa</h1>
+    <p>Semak kehadiran dan intervensi anak anda di sini.</p>
+  </header>
+
+  <main>
+    <section>
+      <label for="no_kad_murid">Nombor Kad Murid:</label>
+      <input type="text" id="no_kad_murid" placeholder="Masukkan nombor kad murid" />
+
+      <button id="btnSemak">Semak</button>
+      <button id="btnAlasan" style="margin-left:1rem;">Hantar Alasan Ketidakhadiran</button>
+    </section>
+
+    <section id="hasilSemakan" style="margin-top: 1rem;">
+      <!-- Papar keputusan kehadiran dan intervensi -->
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 TandaTH 2.0 | Portal Ibu Bapa</p>
+  </footer>
+
+  <script src="ibubapa.js"></script>
+</body>
+</html>

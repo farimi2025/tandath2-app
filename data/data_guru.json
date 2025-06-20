@@ -1,0 +1,20 @@
+[
+  {
+    "id_guru": "G001",
+    "nama_penuh": "NORAINI BINTI ISMAIL",
+    "peranan": ["guru_kelas", "guru_subjek"],
+    "kelas": ["6 Bestari"],
+    "subjek": ["Matematik", "Sains"],
+    "telefon": "0145556666",
+    "email": "noraini@sksek.edu.my"
+  },
+  {
+    "id_guru": "G002",
+    "nama_penuh": "MUHAMMAD FAIZ BIN RAHMAN",
+    "peranan": ["guru_kaunseling"],
+    "kelas": [],
+    "subjek": [],
+    "telefon": "0177778888",
+    "email": "faiz@sksek.edu.my"
+  }
+]

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Laporan Rasmi TandaTH</title>
+  <link rel="stylesheet" href="../modul_induk/gaya.css" />
+  <style>
+    main {
+      max-width: 900px;
+      margin: 1rem auto;
+      background: #fff;
+      padding: 1.5rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      color: #007bff;
+      margin-bottom: 1rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+    button {
+      padding: 0.75rem 1.5rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Laporan Rasmi TandaTH</h1>
+  </header>
+
+  <main>
+    <section id="laporan-kehadiran">
+      <h2>Laporan Kehadiran</h2>
+      <table id="table-kehadiran">
+        <thead>
+          <tr><th>Nama Murid</th><th>Status Kehadiran</th><th>Alasan</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section id="laporan-intervensi">
+      <h2>Laporan Intervensi</h2>
+      <table id="table-intervensi">
+        <thead>
+          <tr><th>Nama Murid</th><th>Status</th><th>Tindakan</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section id="laporan-kebajikan">
+      <h2>Laporan Kebajikan</h2>
+      <table id="table-kebajikan">
+        <thead>
+          <tr><th>Nama Murid</th><th>Jenis Kebajikan</th><th>Tarikh</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <button id="btnCetak">Cetak Laporan</button>
+  </main>
+
+  <footer>
+    <p>© 2025 TandaTH 2.0 | Laporan Rasmi</p>
+  </footer>
+
+  <script src="laporan.js"></script>
+</body>
+</html>

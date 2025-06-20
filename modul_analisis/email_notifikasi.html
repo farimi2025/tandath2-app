@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Notifikasi Emel TandaTH</title>
+  <link rel="stylesheet" href="../modul_induk/gaya.css" />
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function(){
+      emailjs.init("YOUR_EMAILJS_USER_ID"); // Gantikan dengan User ID sebenar
+    })();
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Hantar Notifikasi Emel</h1>
+  </header>
+
+  <main>
+    <form id="form-emel-notifikasi">
+      <label for="to_name">Kepada (Nama):</label>
+      <input type="text" id="to_name" name="to_name" placeholder="Nama penerima" required />
+
+      <label for="from_name">Dari (Nama):</label>
+      <input type="text" id="from_name" name="from_name" placeholder="Nama anda" required />
+
+      <label for="message">Mesej:</label>
+      <textarea id="message" name="message" rows="4" placeholder="Masukkan mesej..." required></textarea>
+
+      <button type="submit">Hantar Emel</button>
+    </form>
+
+    <p id="status"></p>
+  </main>
+
+  <footer>
+    <p>© 2025 TandaTH 2.0 | Notifikasi Emel</p>
+  </footer>
+
+  <script type="module">
+    import { hantarEmel } from './email_scheduler.js';
+
+    const form = document.getElementById('form-emel-notifikasi');
+    const statusElem = document.getElementById('status');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      statusElem.textContent = 'Sedang menghantar emel...';
+
+      const templateParams = {
+        to_name: form.to_name.value,
+        from_name: form.from_name.value,
+        message: form.message.value,
+      };
+
+      try {
+        await hantarEmel(templateParams);
+        statusElem.textContent = 'Emel berjaya dihantar!';
+        form.reset();
+      } catch (error) {
+        statusElem.textContent = 'Gagal menghantar emel. Sila cuba lagi.';
+      }
+    });
+  </script>
+</body>
+</html>
