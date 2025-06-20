@@ -1,9 +1,10 @@
 const CACHE_NAME = 'tandath-cache-v1';
 const FILES_TO_CACHE = [
-  './modul_induk/index.html',
-  './modul_induk/main.js',
-  './modul_induk/gaya.css',
+  './index.html',
+  './main.js',
+  './gaya.css',
   './manifest.json',
+  './favicon.ico',
   './icons/icon-192.png',
   './icons/icon-512.png'
 ];
