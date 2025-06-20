@@ -1,10 +1,10 @@
 {
-  "name": "TandaTH 2.0",
+  "name": "TandaTH — Alat Intervensi Kehadiran",
   "short_name": "TandaTH",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#f5f8fa",
-  "theme_color": "#007bff",
+  "background_color": "#F0F4F8",
+  "theme_color": "#4F8EDC",
   "icons": [
     {
       "src": "icons/icon-192.png",

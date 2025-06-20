@@ -1,3 +1,12 @@
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(function(reg) { console.log("Service Worker registered!"); })
+        .catch(function(err) { console.log("Service Worker registration failed: ", err); });
+    });
+  }
+
 // main.js — Sync kelas.json dari Github (auto), fallback offline, AI "Kelas Kerap Anda"
 // Gantikan dengan direct download link Github Pages kelas.json anda (format uc?id=...)
 const KELAS_JSON_URL = "https://raw.githubusercontent.com/farimi2025/skkemahang2/refs/heads/main/kelas.json";
