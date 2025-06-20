@@ -1,4 +1,4 @@
-const CACHE_NAME = 'tandath-cache-v1';
+const CACHE_NAME = 'tandath2-cache-v1';
 const FILES_TO_CACHE = [
   './modul_induk/index.html',
   './modul_induk/main.js',
